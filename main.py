@@ -58,7 +58,7 @@ async def auth_callback(request: Request):
     try:
         token = await oauth.google.authorize_access_token(request)
     except Exception:
-        return RedirectResponse(url="/?error=auth_failed")
+        return RedirectResponse("https://statement-analyzer-frontend.onrender.com/")
 
     user_info = token.get("userinfo") or {}
     email: str = user_info.get("email", "")
