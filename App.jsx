@@ -167,7 +167,7 @@ function LoginPage({error}) {
           )}
 
           {/* Google SSO button */}
-          <a href="/auth/login"
+          <a href="https://statement-analyzer-1-0.onrender.com/auth/login">
             onMouseEnter={()=>setHovered(true)}
             onMouseLeave={()=>setHovered(false)}
             style={{display:'flex',alignItems:'center',justifyContent:'center',gap:12,
