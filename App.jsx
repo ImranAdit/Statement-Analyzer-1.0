@@ -446,10 +446,15 @@ export default function App() {
 
   // Check auth on mount
   useEffect(()=>{
-    fetch(`${API}/api/me`).then(r=>r.json()).then(data=>{
-      setAuthState({loading:false,authenticated:data.authenticated,user:data.user||null})
-    }).catch(()=>setAuthState({loading:false,authenticated:false,user:null}))
-  },[])
+  fetch(`${API}/api/me`, {
+    credentials: 'include'
+  })
+  .then(r=>r.json())
+  .then(data=>{
+    setAuthState({loading:false,authenticated:data.authenticated,user:data.user||null})
+  })
+  .catch(()=>setAuthState({loading:false,authenticated:false,user:null}))
+},[])
 
   const onExtracted=extracted=>{
     setForm(f=>({...f,
