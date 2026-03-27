@@ -6,7 +6,7 @@ import {
   LogOut, Lock, ShieldCheck
 } from 'lucide-react'
 
-const API = ''
+const API = "https://statement-analyzer-1-0.onrender.com"
 
 const fmt  = (n, d=2) => n==null ? '—' : Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})
 const fmtC = n => n==null ? '—' : '$'+fmt(n)
@@ -167,14 +167,25 @@ function LoginPage({error}) {
           )}
 
           {/* Google SSO button */}
-          <a href="https://statement-analyzer-1-0.onrender.com/auth/login">
-            onMouseEnter={()=>setHovered(true)}
-            onMouseLeave={()=>setHovered(false)}
-            style={{display:'flex',alignItems:'center',justifyContent:'center',gap:12,
-              width:'100%',padding:'.85rem',borderRadius:12,textDecoration:'none',
-              border:`1px solid ${hovered?'rgba(0,200,180,.5)':T.border}`,
-              background:hovered?'rgba(0,200,180,.1)':'rgba(255,255,255,.06)',
-              transition:'all .2s',cursor:'pointer'}}>
+         <a 
+  href="https://statement-analyzer-1-0.onrender.com/auth/login"
+  onMouseEnter={()=>setHovered(true)}
+  onMouseLeave={()=>setHovered(false)}
+  style={{
+    display:'flex',
+    alignItems:'center',
+    justifyContent:'center',
+    gap:12,
+    width:'100%',
+    padding:'.85rem',
+    borderRadius:12,
+    textDecoration:'none',
+    border:`1px solid ${hovered?'rgba(0,200,180,.5)':T.border}`,
+    background:hovered?'rgba(0,200,180,.1)':'rgba(255,255,255,.06)',
+    transition:'all .2s',
+    cursor:'pointer'
+  }}
+>
             {/* Google icon */}
             <svg width="20" height="20" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
