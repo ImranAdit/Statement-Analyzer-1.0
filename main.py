@@ -71,7 +71,7 @@ async def auth_callback(request: Request):
         "name":    user_info.get("name", email.split("@")[0]),
         "picture": user_info.get("picture", ""),
     }
-    return RedirectResponse(url="/")
+    return RedirectResponse("https://statement-analyzer-frontend.onrender.com/")
 
 
 @app.get("/auth/logout")
