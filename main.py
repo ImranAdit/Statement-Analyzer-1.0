@@ -13,7 +13,12 @@ app = FastAPI(title="Adit Pay Statement Analyser")
 
 # ── Session middleware (must come before routes) ───────────────────────────────
 SESSION_SECRET = os.getenv("SESSION_SECRET", secrets.token_hex(32))
-app.add_middleware(SessionMiddleware, secret_key=SESSION_SECRET, https_only=False)
+app.add_middleware(
+    SessionMiddleware,
+    secret_key=SESSION_SECRET,
+    same_site="none",
+    https_only=True
+)
 
 app.add_middleware(
     CORSMiddleware,
