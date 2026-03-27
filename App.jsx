@@ -435,7 +435,7 @@ export default function App() {
 
   // Check auth on mount
   useEffect(()=>{
-    fetch('/api/me').then(r=>r.json()).then(data=>{
+    fetch(`${API}/api/me`).then(r=>r.json()).then(data=>{
       setAuthState({loading:false,authenticated:data.authenticated,user:data.user||null})
     }).catch(()=>setAuthState({loading:false,authenticated:false,user:null}))
   },[])
