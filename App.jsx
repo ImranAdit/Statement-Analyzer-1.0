@@ -168,8 +168,9 @@ function LoginPage({error}) {
 
           {/* Google SSO button */}
          <a 
-<a href={`${API}/auth/login`}>
-onMouseEnter={()=>setHovered(true)}
+<a 
+  href={`${API}/auth/login`}
+  onMouseEnter={()=>setHovered(true)}
   onMouseLeave={()=>setHovered(false)}
   style={{
     display:'flex',
