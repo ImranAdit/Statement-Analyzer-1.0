@@ -224,7 +224,11 @@ function UploadZone({onExtracted,setLoading,loading}) {
     setError(null); setFileName(file.name); setLoading(true)
     const fd=new FormData(); fd.append('file',file)
     try {
-      const res=await fetch(`${API}/api/upload`,{method:'POST',body:fd})
+      fetch(`${API}/api/upload`, {
+  method:'POST',
+  body:fd,
+  credentials: 'include'
+})
       const data=await res.json()
       if(!res.ok) throw new Error(data.detail||'Upload failed')
       onExtracted(data.extracted)
