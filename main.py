@@ -248,3 +248,10 @@ if os.path.isdir(FRONTEND_DIST):
     @app.get("/{full_path:path}")
     async def spa(full_path: str):
         return FileResponse(os.path.join(FRONTEND_DIST, "index.html"))
+import os
+import uvicorn
+
+port = int(os.environ.get("PORT", 10000))
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=port)
