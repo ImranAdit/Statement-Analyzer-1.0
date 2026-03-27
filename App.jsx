@@ -454,14 +454,18 @@ export default function App() {
   const calculate=async()=>{
     setCalcLoading(true)
     try {
-      const API = "https://statement-analyzer-1-0.onrender.com"
-        method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({...form,
-          total_amount:Number(form.total_amount),
-          total_count:Number(form.total_count),
-          total_fees_paid:Number(form.total_fees_paid),
-          card_present_pct:Number(form.card_present_pct)})
-      })
+      const API = "https://statement-analyzer-1-0.onrender.com";
+
+const res = await fetch(`${API}/api/calculate`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    ...form,
+    total_amount: Number(form.total_amount)
+  })
+});
       const data=await res.json()
       if(!res.ok) throw new Error(data.detail||'Calculation failed')
       setResult(data)
