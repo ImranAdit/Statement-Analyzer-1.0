@@ -166,10 +166,10 @@ function LoginPage({error}) {
             </div>
           )}
 
-          {/* Google SSO button */}
-         <a 
-<a
-  href={`${API}/auth/login`}
+         {/* Google SSO button */}
+<a href="https://statement-analyzer-1-0.onrender.com/auth/login">
+  Continue with Google
+</a>  
   onMouseEnter={()=>setHovered(true)}
   onMouseLeave={()=>setHovered(false)}
   style={{
